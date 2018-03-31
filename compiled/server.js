@@ -89,7 +89,7 @@ var APP_NAME = exports.APP_NAME = 'testapp999'; //Local dev
 /* export const APP_NAME = 'devapp999'; //local live */
 
 /* export const APP_URL = 'https://artcontent.herokuapp.com';Live */
-var APP_URL = exports.APP_URL = 'https://2bb62ebf.ngrok.io'; //Local dev
+var APP_URL = exports.APP_URL = 'https://577efc81.ngrok.io'; //Local dev
 
 /* export const APP_URL = 'https://84c4484d.ngrok.io'; //local live */
 
@@ -734,6 +734,9 @@ var options = {
   }
 };
 
+var LocalStorage = require('node-localstorage').LocalStorage;
+var localStorage = new LocalStorage('./scratch');
+
 var pgp = __webpack_require__(7)(options);
 
 var connectionString = 'postgres://postgres:TechAdmin@localhost/shopify-app-development';
@@ -1044,7 +1047,27 @@ exports.default = function () {
   });
 
   /*getAllRequest*/
+  router.get('/api/shopurl', function (req, res) {
+      console.log(localStorage.getItem('shopURL'));
+      var shopurl = localStorage.getItem('shopURL');
+      if(shopurl){
+        res.status(200).json({
+          status: 'success',
+          data: shopurl
+        });
+      }else{
+        res.status(500).json({
+          status: 'error',
+          message: err
+        });
+      }
+
+  });
+
+
   router.get('/api/getarticles', function (req, res) {
+
+    
 
     var shop = req.query.updateque;
     if (shop != 'all') {
@@ -1276,13 +1299,15 @@ exports.default = function () {
    */
   router.get(_config.AUTH_CALLBACK_ROUTE, function (req, res, next) {
 
-    console.log('Request: ' + req);
     var query = req.query,
         session = req.session;
     var code = query.code,
         shop = query.shop,
         state = query.state;
 
+        localStorage.setItem('shopURL', shop);
+        console.log(localStorage.getItem('shopURL'));
+        
     var shopifyToken = getShopifyToken();
 
     // Exchange the authorization code for a permanent access token.

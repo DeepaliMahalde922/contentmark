@@ -12,8 +12,8 @@ export const APP_NAME = 'testapp999'; //Local dev
 /* export const APP_NAME = 'devapp999'; //local live */
 
 /* export const APP_URL = 'https://artcontent.herokuapp.com';Live */
+export const APP_URL = 'https://2bb62ebf.ngrok.io'; //Local dev
 
-export const APP_URL = 'https://contentart.herokuapp.com/';
 /* export const APP_URL = 'https://84c4484d.ngrok.io'; //local live */
 
 export const APP_HOME_ROUTE = '/home';

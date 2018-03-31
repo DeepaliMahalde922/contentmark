@@ -13,6 +13,7 @@ const { REACT_APP_SHOPIFY_API_KEY, REACT_APP_SHOP_ORIGIN } = process.env;
 
 class Adminorderlist extends React.Component {
 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -97,9 +98,11 @@ class Adminorderlist extends React.Component {
   }
 
   componentDidMount() {
+
+    console.log('')
     var self = this;
 
-    var url = new URL("https://8638bc85.ngrok.io/api/getarticles"),
+    var url = new URL("https://2bb62ebf.ngrok.io/api/getarticles"),
         params = {updateque:'all'}
        
 

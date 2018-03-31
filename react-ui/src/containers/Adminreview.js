@@ -71,7 +71,7 @@ class Adminreview extends React.Component {
       });
 
       /*Fetch Request Article to show data*/
-      const blogapiUrl = "https://8638bc85.ngrok.io/api/getsinglearticles/:"+requestid;
+      const blogapiUrl = "https://2bb62ebf.ngrok.io/api/getsinglearticles/:"+requestid;
       const blogInit = {
         method: 'GET',
         headers: {
@@ -104,7 +104,7 @@ class Adminreview extends React.Component {
   handleGoTolist = () => {
     const { history } = this.props;
     
-    if(REACT_APP_SHOP_ORIGIN == 'testapp911.myshopify.com'){
+    if(REACT_APP_SHOP_ORIGIN == 'test-account-13.myshopify.com'){
       history.push('/adminorderlist');
     }else{
       history.push('/orderlist');  

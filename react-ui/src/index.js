@@ -11,6 +11,7 @@ import '@shopify/polaris/styles.css';
 import { EmbeddedApp } from '@shopify/polaris/embedded';
 
 import store, { history } from './store';
+import Cookies from 'universal-cookie';
 
 import './index.css';
 import App from './App';
@@ -19,6 +20,31 @@ import App from './App';
 axios.defaults.withCredentials = true;
 
 useLinkComponent(Link);
+
+
+/*  const url = "https://0d5615af.ngrok.io/api/shopurl";
+
+  const myInit = {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  };
+
+ fetch(url, myInit)
+  .then((response) => {
+    return response.json();
+  })
+  .then((responseData) => {
+
+    process.env.NODE_ENV.REACT_APP_SHOP_ORIGIN = 'testbagstore.myshopify.com';
+    console.log(responseData.data);
+    
+  })
+  .catch(function (e) {
+    //console.log(e);
+  });*/
 
 // These values are used in development. They are defined in the .env file
 const { REACT_APP_SHOPIFY_API_KEY, REACT_APP_SHOP_ORIGIN } = process.env;
@@ -39,6 +65,11 @@ const shop: ?string = REACT_APP_SHOP_ORIGIN || SHOP_ORIGIN;
 const shopOrigin: ?string = shop && `https://${shop}`;
 
 const target = document.getElementById('root');
+
+/*const cookies = new Cookies();
+cookies.set('myCat', 'Pacmandfdfdfafad');
+console.log(cookies.get('myCat')); // Pacman
+console.log(cookies.get('_landing_page'));*/
 
 render(
   <EmbeddedApp apiKey={apiKey} shopOrigin={shopOrigin} forceRedirect>

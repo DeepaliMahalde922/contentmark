@@ -146,8 +146,8 @@ export class ProductsPageComponent extends Component<Props, OwnState> {
 
   handleGoTorder = () => {
     const { history } = this.props;
-
-    if(REACT_APP_SHOP_ORIGIN == 'testapp911.myshopify.com'){
+    
+    if(REACT_APP_SHOP_ORIGIN == 'test-account-13.myshopify.com'){
       history.push('/adminorderlist');
     }else{
       history.push('/orderlist');  
@@ -205,6 +205,8 @@ export class ProductsPageComponent extends Component<Props, OwnState> {
   };
 
   render() {
+
+    console.log('Deepali 123');
     const { contenType } = this.state;
     const { products = [] } = this.props;
     const { resourcePickerOpen } = this.state;

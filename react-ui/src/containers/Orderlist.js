@@ -104,7 +104,7 @@ class Orderlist extends React.Component {
   componentDidMount() {
     var self = this;
 
-    var url = new URL("https://8638bc85.ngrok.io/api/getarticles"),
+    var url = new URL("https://2bb62ebf.ngrok.io/api/getarticles"),
         params = {updateque:REACT_APP_SHOP_ORIGIN}
        
 
